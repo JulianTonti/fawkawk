@@ -7,5 +7,13 @@
     "test": "echo 'type some lines to be reversed:' && node . '(s,i) => ++i%5==0 ? process.exit() : console.log(i, s.split(\"\").reverse().join(\"\"))'"
   },
   "author": "Julian Tonti-Filippini <julian.tonti@gmail.com>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianTonti/jawk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JulianTonti/jawk/issues"
+  },
+  "homepage": "https://github.com/JulianTonti/jawk#readme"
 }

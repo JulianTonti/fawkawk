@@ -6,8 +6,8 @@ function rtfm(error='') {
   process.exit();
 }
 function get_func() {
-  const code = process.argv[2];
-  if (!code) rtfm();
+  const code = process.argv[2] || 'console.log';
+  if (code == '--help' || code == '-h') rtfm();
   try      { return (new Function('return ' + code))(); }
   catch(e) { rtfm(`ERROR: there's a syntax error in your function\n${e}\n${code}`); }
 }
