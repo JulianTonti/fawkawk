@@ -1,5 +1,5 @@
 const readline = require('readline');
-const docs = require('fs').readFileSync('README.md').toString();
+const docs = require('fs').readFileSync(__dirname+'/README.md').toString();
 function rtfm(error='') {
   console.log(docs);
   if (error) console.error(error);
