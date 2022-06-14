@@ -30,8 +30,8 @@ cat ifile.jsonl | node . '(s,i) => JSON.stringify(i==0 ? Object.keys(JSON.parse(
 
 # using a closure to count the vowels per 10 lines as a JSON object
 cat ifile.txt | node . '(() => {
-  let reset = () => ({a:0,e:0,i:0,o:0,i:0});
-  let tally = reset();
+  let tally = {};
+  let reset = () => tally = {a:0,e:0,i:0,o:0,i:0};
   let count = s => Object.values(s.toLowerCase()).forEach(c => tally[c] !== undefined ? tally[c]++ : "");
   let print = () => JSON.stringify(tally) + "\n";
   return (s,i) => {
