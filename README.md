@@ -17,6 +17,12 @@ A joke verion of awk, dedicated to CIC-Christian, who hates loops.
 ## Examples
 
 ```bash
+# echo user input
+jawk 'console.log'
+
+# print the length of each line in a file
+cat ifile.txt | jawk 's => s.length+"\n"'
+
 # wait for user input and echo each line backwards
 jawk 's => s.split("").reverse().join("") + "\n"'
 
