@@ -2,7 +2,7 @@
 
 A joke verion of awk, dedicated to CIC-Christian, who hates loops.
 
-`node jawk '(line,linenum) => { return modified_line + "\n" }'`
+`node . '(line,linenum) => { return modified_line + "\n" }'`
 
 ## Notes
 
