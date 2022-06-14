@@ -1,0 +1,11 @@
+{
+  "name": "jawk",
+  "version": "1.0.0",
+  "description": "a joke version of awk that actually kinda works",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'type some lines to be reversed:' && node . '(s,i) => ++i%5==0 ? process.exit() : console.log(i, s.split(\"\").reverse().join(\"\"))'"
+  },
+  "author": "Julian Tonti-Filippini <julian.tonti@gmail.com>",
+  "license": "Apache-2.0"
+}
