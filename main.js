@@ -9,8 +9,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 if (require.main !== module) process.exit(0);
 const code = process.argv[2]?.trim() ?? 'console.log';
-if (code == '--help' || code == '-h') console.log(require('fs').readFileSync(__dirname+'/README.md').toString());
+if (code == '--help' || code == '-h') console.log(require('fs').readFileSync(`${__dirname}/README.md`).toString());
 else try {
-  const transformer = new Function('return ' + code)(); let linenum = 0;
-  require('readline').createInterface({ input: process.stdin }).on('line', line => process.stdout.write(`${transformer(line,linenum++) ?? ''}`));
+  const transformer = new Function(`return ${code}`)(); let linenum = 0;
+  require('readline').createInterface({ input: process.stdin }).on('line', line => process.stdout.write(transformer(line,linenum++) ?? ''));
 } catch(e) { console.error(`\n${e}\n\n${code}\n`); }
