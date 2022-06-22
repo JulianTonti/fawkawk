@@ -48,7 +48,7 @@ cat ifile.jsonl | fawk '(line,num) => {
   catch(e) { 
     console.error("error on line:",num,e);
   }
-}' > ofile.csv
+}' > ofile.jsonlr
 
 
 ```
