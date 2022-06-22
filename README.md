@@ -115,11 +115,11 @@ fawk 's => s.trim() == "" ? "" : s + "\n"'
 # or use console.log which adds the system's default line ending
 fawk 's => console.log(s)'
 
-# convert a JSONL file into a CSV
-fawk '(s,i) => (i == 0 ? Object.keys : Object.values)(JSON.parse(s)).join(",")' < ifile.jsonl > ofile.csv
-
 # convert a JSONL file into a JSONLR file
-fawk '(s,i) => JSON.stringify(i == 0 ? Object.keys : Object.values)(JSON.parse(s)))' < ifile.jsonl > ofile.jsonlr
+fawk '(s,i) => {
+  if (i == 0) console.log(JSON.stringify(Object.keys(JSON.parse(s)));
+  console.log(JSON.stringify(Object.values(JSON.parse(s)));
+}' < ifile.jsonl > ofile.jsonlr
 
 # convert a JSONLR file into a CSV
 fawk 's => s.slice(1,s.length-1) + "\n"' < ifile.jsonlr > ofile.csv
