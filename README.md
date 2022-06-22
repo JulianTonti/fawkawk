@@ -96,7 +96,7 @@ fawk '/* inline comment */ (s) => {
 cat ifile | fawk 'fn1' | fawk 'fn2' | fawk 'fn3' > ofile 
 
 # print the length of each line in a file
-cat ifile.txt | jawk 's => s.length+"\n"'
+cat ifile.txt | fawk 's => s.length+"\n"'
 
 # wait for user input and echo each line backwards
 fawk 's => s.split("").reverse().join("") + "\n"'
