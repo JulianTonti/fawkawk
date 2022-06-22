@@ -1,19 +1,20 @@
 {
-  "name": "jawk",
+  "name": "fawkawk",
   "version": "1.0.0",
+  "type":"commonjs",
   "description": "a joke version of awk that actually kinda works",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo 'type some lines to be reversed:' && node . '(s,i) => ++i%5==0 ? process.exit() : console.log(i, s.split(\"\").reverse().join(\"\"))'"
   },
   "author": "Julian Tonti-Filippini <julian.tonti@gmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JulianTonti/jawk.git"
+    "url": "git+https://github.com/JulianTonti/fawkawk.git"
   },
   "bugs": {
-    "url": "https://github.com/JulianTonti/jawk/issues"
+    "url": "https://github.com/JulianTonti/fawkawk/issues"
   },
-  "homepage": "https://github.com/JulianTonti/jawk#readme"
+  "homepage": "https://github.com/JulianTonti/fawkawk#readme"
 }
