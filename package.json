@@ -5,7 +5,9 @@
   "description": "a joke version of awk that actually kinda works",
   "main": "main.js",
   "scripts": {
-    "test": "echo 'type some lines to be reversed:' && node . '(s,i) => ++i%5==0 ? process.exit() : console.log(i, s.split(\"\").reverse().join(\"\"))'"
+    "test": "npm run test1 && npm run test2",
+    "test1": "cat README.md | node . ./demo.js",
+    "test2": "echo 'type some lines to be reversed:' && node . '(s,i) => ++i%5==0 ? process.exit() : console.log(i, s.split(\"\").reverse().join(\"\"))'"
   },
   "author": "Julian Tonti-Filippini <julian.tonti@gmail.com>",
   "license": "MIT",

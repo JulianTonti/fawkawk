@@ -8,9 +8,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 if (require.main !== module) process.exit(0);
+const {resolve} = require('path');
+const {readFileSync} = require('fs');
 const code = process.argv[2]?.trim() ?? 'console.log';
-if (code == '--help' || code == '-h') console.log(require('fs').readFileSync(`${__dirname}/README.md`).toString());
+if (code == '--help' || code == '-h') console.log(readFileSync(resolve(__dirname,'README.md')).toString());
 else try {
-  const transformer = new Function(`return ${code}`)(); let linenum = 0;
-  require('readline').createInterface({ input: process.stdin }).on('line', line => process.stdout.write(`${transformer(line,linenum++) ?? ''}`));
+  let count = 0; const transformer = code.match(/\.js$/) ? require(resolve(code)) : new Function(`return ${code}`)(); 
+  require('readline').createInterface({ input: process.stdin }).on('line', line => process.stdout.write(`${transformer(line,count++) ?? ''}`));
 } catch(e) { console.error(`\n${e}\n\n${code}\n`); }
